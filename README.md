@@ -51,4 +51,8 @@ The following usage examples show the simplest task you can accomplish with `Cre
 6. Copy and Paste you Slack Webhook URL in place of `_slack_webhook_url_here` inside `slack_variables.py` file.
 
 
-CREDAX - Developed by notmarshmllow !
+All developments to the tool are welcomed and highly appreciated !
+
+
+**CREDAX - Developed by [@notmarshmllow](https://twitter.com/notmarshmllow)**
+
