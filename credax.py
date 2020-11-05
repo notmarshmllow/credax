@@ -1,3 +1,5 @@
+#CREDAX - FAST AI POWERED FUZZNG TOOL WITH SLACK NOTIFICATIONS.
+
 import argparse
 import aiohttp
 import asyncio
