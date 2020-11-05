@@ -48,5 +48,4 @@ The following usage examples show the simplest task you can accomplish with `Cre
 3. Select your App
 4. Select `Add features and functionality` > `Incoming Webhooks`.
 5. Below on the page you will find your `Slack Webhook URL`.
-
-6 .Copy and Paste you Slack Webhook URL in place of `_slack_webhook_url_here` inside `slack_variables.py` file
+6. Copy and Paste you Slack Webhook URL in place of `_slack_webhook_url_here` inside `slack_variables.py` file
