@@ -27,20 +27,17 @@ The following usage examples show the simplest task you can accomplish with `Cre
   
   Examples :
   
- # Basic Fuzzing
+ # BASIC FUZZING
   
   `python3 credax.py -d https://example.com/ -w wordlist.txt`
   
-  # Send Notifications to slack.
+  # SEND NOTIFICATIONS TO SLACK
   
   `python3 credax.py -d https://example.com/ -w wordlist.txt -s`
   
-  # Print the results in a file
+  # PRINT RESULTS TO A FILE
   
   `python3 credax.py -d https://example.com/ -w wordlist.txt -o filename.txt`
-  
-  # Use all flags together.
-  `python3 credax.py -d https://example.com/ -w wordlist.txt -s -o filename.txt`
   
   
   # SLACK NOTIFICATIONS
