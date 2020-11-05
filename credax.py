@@ -1,5 +1,3 @@
-#CREDAX - FAST AI POWERED FUZZNG TOOL WITH SLACK NOTIFICATIONS.
-
 import argparse
 import aiohttp
 import asyncio
@@ -18,8 +16,8 @@ print("""\n
 _/        _/    _/  _/        _/    _/  _/    _/    _/  _/        
  _/_/_/  _/    _/  _/_/_/_/  _/_/_/    _/    _/  _/      _/       
                                                         v1.0
-               When the heat is on, you gotta call the fuzz
-                                 Developed by notmarshmllow
+                When the heat is on, you gotta call the fuzz
+                                  Developed by notmarshmllow
 
 \n""")
 
@@ -41,6 +39,7 @@ base_url = str(base_url)
 
 
 
+
 if args.c:
     user_c = tuple(args.c)
 
@@ -51,11 +50,22 @@ async def main():
     async with aiohttp.ClientSession() as session:
 
         filex = open(args.w, 'r')
+        if args.s:
+            s11 ="SLACK NOTIFICATION : ON"
+        else:
+            s11 = "SLACK NOTIFICATION : OFF"
+        if args.o:
+            o11 = "OUTPUT TO : " +args.o
+        else:
+            o11 = "OUTPUT TO : NONE "
+        u11 = "URL : " + base_url
+        w11 = "Wordlist : " + args.w
 
-        print("\nURL : " + base_url)
-        print("\nWordlist : " + args.w)
+        print(f'{u11}   {w11}   {s11}   {o11}')
+
+
         time.sleep(1)
-        print("\nCredax is heating itself ...")
+        print("\nCredax is heating itself ...\n\n")
 
         for line in filex:
             l = []
