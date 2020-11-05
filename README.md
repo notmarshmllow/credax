@@ -8,7 +8,8 @@ Credax is a lite-weight AI Powered Fuzzing Tool built in Python. Credax uses the
 Credax requires Python3.7 + to run. Please upgrade your Python version to 3.7 or higher to use Credax.
 
 Clone the Credax reporitory.
-`git clone`
+
+`git clone https://github.com/notmarshmllow/credax.git`
 
 Install the Requirements
 
