@@ -22,11 +22,6 @@ _/        _/    _/  _/        _/    _/  _/    _/    _/  _/
 \n""")
 
 
-import sys
-if sys.version_info<(3,7,0):
-  sys.stderr.write("You need python 3.7+ or later to run this script\n")
-  exit(1)
-
 
 my_parser = argparse.ArgumentParser()
 my_parser.add_argument('-d', type=str, required=True, help="Provide Target Name")
@@ -41,17 +36,6 @@ args = my_parser.parse_args()
 
 base_url = args.d
 base_url = str(base_url)
-slack_base_url = 'Credax just heated itself & started fuzzing ' + base_url + ' \nCredax hopes you have a great day and find some cool bugs ! '
-
-if args.s:
-    slack_data = {'text': slack_base_url}
-    response = requests.post(slack_webhook_url, data=json.dumps(slack_data))
-    if response.status_code != 200:
-        raise ValueError(
-            'Request to slack returned an error %s, the response is:\n%s'
-            % (response.status_code, response.text)
-        )
-
 
 
 if args.c:
@@ -88,6 +72,7 @@ async def main():
                     l = []
                     word = line.strip()
                     word = str(word)
+                    print(word)
 
 
                     fuzz = base_url + word
