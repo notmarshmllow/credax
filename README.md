@@ -30,7 +30,6 @@ The following usage examples show the simplest task you can accomplish with `Cre
   ![alt text](https://github.com/notmarshmllow/credax/blob/main/credax.png?raw=True)
   
   
-  Examples :
   
  # BASIC FUZZING
   
