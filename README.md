@@ -1,7 +1,11 @@
 # CREDAX - FAST AI POWERED FUZZING TOOL with SLACK NOTIFICATIONS
 Credax - Fast AI Powered Fuzzing Tool with Slack Notifications.
 
-Credax is a lite-weight AI Powered Fuzzing Tool built in Python. Credax uses the least of your CPU by using more concurrent tasks and less threads, thus saving your OS Threads, providing you with better speed and results. 
+Credax is a lite-weight AI Powered Fuzzing Tool built in Python. Credax uses the least of your CPU by using more concurrent tasks and less threads, thus saving your OS Threads, providing you with better speed and results.
+
+CREDAX auto removes all consecutive result that respond with same length, thus removing almost all consecutive false positives, providing better output + Slack Notifications. This feature is self activated as soon as Credax starts heating itself.
+
+# 
 
 # INSTALLATION
 
