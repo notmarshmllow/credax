@@ -22,6 +22,11 @@ _/        _/    _/  _/        _/    _/  _/    _/    _/  _/
 \n""")
 
 
+import sys
+if sys.version_info<(3,7,0):
+  sys.stderr.write("You need python 2.6 or later to run this script\n")
+  exit(1)
+
 
 my_parser = argparse.ArgumentParser()
 my_parser.add_argument('-d', type=str, required=True, help="Provide Target Name")
@@ -83,7 +88,7 @@ async def main():
                     l = []
                     word = line.strip()
                     word = str(word)
-                    
+
 
                     fuzz = base_url + word
                     l.append(fuzz)
