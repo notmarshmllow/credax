@@ -24,7 +24,7 @@ _/        _/    _/  _/        _/    _/  _/    _/    _/  _/
 
 import sys
 if sys.version_info<(3,7,0):
-  sys.stderr.write("You need python 2.6 or later to run this script\n")
+  sys.stderr.write("You need python 3.7+ or later to run this script\n")
   exit(1)
 
 
