@@ -32,16 +32,17 @@ The following usage examples show the simplest task you can accomplish with `Cre
   
   `python3 credax.py -d https://example.com/ -w wordlist.txt`
   
-  # SEND NOTIFICATIONS TO SLACK
+ # SEND NOTIFICATIONS TO SLACK
   
   `python3 credax.py -d https://example.com/ -w wordlist.txt -s`
   
-  # PRINT RESULTS TO A FILE
+  # MATCHING STATUS CODES
+   
+  `python3 credax.py -d https://example.com/ -w wordlist.txt -c 200 401 403`
+  
+  # OUTPUT RESULTS TO A FILE
   
   `python3 credax.py -d https://example.com/ -w wordlist.txt -o filename.txt`
-  
-  # MATCHING STATUS CODES
-  `python3 credax.py -d https://example.com/ -w wordlist.txt -c 200 401 403`
   
   
   
@@ -58,5 +59,5 @@ The following usage examples show the simplest task you can accomplish with `Cre
 All developments to the tool are welcomed and highly appreciated !
 
 
-**CREDAX - Developed by [@notmarshmllow](https://twitter.com/notmarshmllow)**
+**CREDAX - Developed by [@notmarshmllow](https://twitter.com/notmarshmllow)**:sparkles:
 
