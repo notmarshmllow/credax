@@ -17,7 +17,7 @@ CREDAX auto removes all consecutive result that respond with same length, thus r
 
 2 .Install the Requirements
 
-`pip3 freeze > credax.py`
+`pip install -r requirements.txt`
 
 `python3 credax.py -h`
 
