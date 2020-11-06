@@ -1,5 +1,5 @@
 # CREDEX - FAST AI POWERED FUZZING TOOL with SLACK NOTIFICATIONS
-Credex - Fast AI Powered Fuzzing Tool with Slack Notifications.
+**Credex - Fast AI Powered Fuzzing Tool with Slack Notifications.**
 
 Credex is a lite-weight AI Powered Fuzzing Tool built in Python. Credex uses the least of your CPU by using more concurrent tasks and less threads, thus saving your OS Threads, providing you with better speed and results.
 
