@@ -16,8 +16,8 @@ print("""\n
 _/        _/    _/  _/        _/    _/  _/    _/    _/  _/        
  _/_/_/  _/    _/  _/_/_/_/  _/_/_/    _/    _/  _/      _/       
                                                         v1.0
-                When the heat is on, you gotta call the fuzz
-                                  Developed by notmarshmllow
+               When the heat is on, you gotta call the fuzz
+                                 Developed by notmarshmllow
 
 \n""")
 
@@ -36,7 +36,16 @@ args = my_parser.parse_args()
 
 base_url = args.d
 base_url = str(base_url)
+slack_base_url = 'Credax just heated itself & started fuzzing ' + base_url + ' \nHave a great day ! '
 
+if args.s:
+    slack_data = {'text': slack_base_url}
+    response = requests.post(slack_webhook_url, data=json.dumps(slack_data))
+    if response.status_code != 200:
+        raise ValueError(
+            'Request to slack returned an error %s, the response is:\n%s'
+            % (response.status_code, response.text)
+        )
 
 
 
@@ -48,40 +57,46 @@ if args.c:
 async def main():
     l1 = []
     async with aiohttp.ClientSession() as session:
+        try:
+            with open(args.w, encoding='ISO-8859-1', errors='ignore') as filex:
+                if args.s:
+                    s11 = "SLACK NOTIFICATION : ON"
+                else:
+                    s11 = "SLACK NOTIFICATION : OFF"
+                if args.o:
+                    o11 = "OUTPUT TO : " + args.o
+                else:
+                    o11 = "OUTPUT TO : NONE "
+                u11 = "URL : " + base_url
+                w11 = "Wordlist : " + args.w
 
-        filex = open(args.w, 'r')
-        if args.s:
-            s11 ="SLACK NOTIFICATION : ON"
-        else:
-            s11 = "SLACK NOTIFICATION : OFF"
-        if args.o:
-            o11 = "OUTPUT TO : " +args.o
-        else:
-            o11 = "OUTPUT TO : NONE "
-        u11 = "URL : " + base_url
-        w11 = "Wordlist : " + args.w
+                print(f'{u11}  |  {w11}  |  {s11}  |  {o11}')
 
-        print(f'{u11}   {w11}   {s11}   {o11}')
+                time.sleep(1)
+                print("\nCredax is heating itself ...\n\n")
+
+                for line in filex:
+                    l = []
+                    word = line.strip()
+                    word = str(word)
+                    print(word)
+
+                    fuzz = base_url + word
+                    l.append(fuzz)
+
+                    async with session.get(fuzz) as resp:
+                        status = resp.status
+                        l.append(status)
+
+                        result = await resp.text()
+                        result = str(result)
+                        size = len(result)
+                        l.append(size)
+                        l1.append(l)
+        except:
+            pass
 
 
-        time.sleep(1)
-        print("\nCredax is heating itself ...\n\n")
-
-        for line in filex:
-            l = []
-            word = line.strip()
-
-            fuzz = base_url + word
-            l.append(fuzz)
-
-            async with session.get(fuzz) as resp:
-                status = resp.status
-                l.append(status)
-
-                result = await resp.text()
-                size = len(result)
-                l.append(size)
-                l1.append(l)
 
 
 
