@@ -40,6 +40,10 @@ The following usage examples show the simplest task you can accomplish with `Cre
   
   `python3 credax.py -d https://example.com/ -w wordlist.txt -o filename.txt`
   
+  # MATCHING STATUS CODES
+  `python3 credax.py -d https://example.com/ -w wordlist.txt -c 200 401 403`
+  
+  
   
   # SLACK NOTIFICATIONS
   
