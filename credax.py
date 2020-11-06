@@ -36,7 +36,7 @@ args = my_parser.parse_args()
 
 base_url = args.d
 base_url = str(base_url)
-slack_base_url = 'Credax just heated itself & started fuzzing ' + base_url + ' \nHave a great day ! '
+slack_base_url = 'Credax just heated itself & started fuzzing ' + base_url + ' \nCredax hopes you have a great day and find some cool bugs ! '
 
 if args.s:
     slack_data = {'text': slack_base_url}
@@ -63,6 +63,10 @@ async def main():
                     s11 = "SLACK NOTIFICATION : ON"
                 else:
                     s11 = "SLACK NOTIFICATION : OFF"
+                if args.c:
+                    c11 = "Matching Status Codes : " + args.c
+                else:
+                    c11 = "Matching Status Codes : 200 , 301, 302, 401, 403"
                 if args.o:
                     o11 = "OUTPUT TO : " + args.o
                 else:
@@ -70,7 +74,7 @@ async def main():
                 u11 = "URL : " + base_url
                 w11 = "Wordlist : " + args.w
 
-                print(f'{u11}  |  {w11}  |  {s11}  |  {o11}')
+                print(f'{u11}  |  {w11}  |  {s11}  |  {c11}   |  {o11}')
 
                 time.sleep(1)
                 print("\nCredax is heating itself ...\n\n")
@@ -79,7 +83,7 @@ async def main():
                     l = []
                     word = line.strip()
                     word = str(word)
-                    print(word)
+                    
 
                     fuzz = base_url + word
                     l.append(fuzz)
