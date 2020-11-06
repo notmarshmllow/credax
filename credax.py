@@ -45,6 +45,7 @@ if args.c:
 
 async def main():
     l1 = []
+    num_words = 0
     async with aiohttp.ClientSession() as session:
         try:
             with open(args.w, encoding='ISO-8859-1', errors='ignore') as filex:
@@ -72,13 +73,17 @@ async def main():
                     l = []
                     word = line.strip()
                     word = str(word)
-                    print(word)
+                    words = line.split()
+                    num_words += len(words)
+
 
 
                     fuzz = base_url + word
                     l.append(fuzz)
 
                     async with session.get(fuzz) as resp:
+                        for i in range(num_words):
+                            print("Total Requests : {}".format(i), end="\r")
                         status = resp.status
                         l.append(status)
 
