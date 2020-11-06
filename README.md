@@ -9,7 +9,7 @@ CREDAX auto removes all consecutive result that respond with same length, thus r
 
 # INSTALLATION
 
-Credax requires Python3.7 + to run. Please upgrade your Python version to 3.7 or higher to use Credax.
+**Credax requires Python3.7 + to run. Please upgrade your Python version to 3.7 or higher to use Credax.
 
 1 .Clone the Credax reporitory.
 
