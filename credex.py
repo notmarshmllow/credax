@@ -30,6 +30,7 @@ my_parser.add_argument('-w', required=True, help="Custom Wordlist")
 my_parser.add_argument('-c', nargs='+', type=int , help="Match Custom Status Codes")
 my_parser.add_argument('-s', required=False, action='count', help="Send notifications to slack.")
 
+
 args = my_parser.parse_args()
 
 
@@ -46,6 +47,7 @@ if args.c:
 async def main():
     l1 = []
     num_words = 0
+    num_respomnse = 0
     async with aiohttp.ClientSession() as session:
         try:
             with open(args.w, encoding='ISO-8859-1', errors='ignore') as filex:
@@ -69,14 +71,13 @@ async def main():
                 time.sleep(1)
                 print("\nCredax is heating itself ...\n\n")
 
+
                 for line in filex:
                     l = []
                     word = line.strip()
                     word = str(word)
                     words = line.split()
                     num_words += len(words)
-
-
 
                     fuzz = base_url + word
                     l.append(fuzz)
