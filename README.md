@@ -80,5 +80,5 @@ All developments to the tool are welcomed and highly appreciated !
 
 
 
-**CREDAX - Developed by [@notmarshmllow](https://twitter.com/notmarshmllow)**:sparkles:
+**CREDAX - Developed by [@notmarshmllow](https://twitter.com/notmarshmllow) & [@Ciper_942](https://twitter.com/Ciper_942)**:sparkles:
 
