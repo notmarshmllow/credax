@@ -29,11 +29,10 @@ my_parser.add_argument('-o', required=False, help="Specify your Output File Name
 my_parser.add_argument('-w', required=True, help="Custom Wordlist")
 my_parser.add_argument('-c', help="Match Custom Status Codes")
 my_parser.add_argument('-s', required=False, action='count', help="Send notifications to slack.")
+my_parser.add_argument('-POST', action="count" , help="POST METHOD")
 
 
 args = my_parser.parse_args()
-
-
 
 base_url = args.d
 base_url = str(base_url)
@@ -41,7 +40,6 @@ base_url = str(base_url)
 
 if args.c:
     user_c = tuple(args.c)
-
 
 
 async def main():
@@ -82,17 +80,32 @@ async def main():
                     fuzz = base_url + word
                     l.append(fuzz)
 
-                    async with session.get(fuzz) as resp:
-                        for i in range(num_words):
-                            print("Total Requests : {}".format(i), end="\r")
-                        status = resp.status
-                        l.append(status)
+                    if args.POST:
 
-                        result = await resp.text()
-                        result = str(result)
-                        size = len(result)
-                        l.append(size)
-                        l1.append(l)
+                        async with session.post(fuzz) as resp:
+                            for i in range(num_words):
+                                print("Total Requests : {}".format(i), end="\r")
+                            status = resp.status
+                            l.append(status)
+
+                            result = await resp.text()
+                            result = str(result)
+                            size = len(result)
+                            l.append(size)
+                            l1.append(l)
+                    else:
+                        async with session.get(fuzz) as resp:
+                            for i in range(num_words):
+                                print("Total Requests : {}".format(i), end="\r")
+                            status = resp.status
+                            l.append(status)
+
+                            result = await resp.text()
+                            result = str(result)
+                            size = len(result)
+                            l.append(size)
+                            l1.append(l)
+
         except:
             pass
 
