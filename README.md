@@ -41,11 +41,14 @@ The following usage examples show the simplest task you can accomplish with `Cre
   
   # MATCHING STATUS CODES
    
-  `python3 credex.py -d https://example.com/ -w wordlist.txt -c 200 401 403`
+  `python3 credex.py -d https://example.com/ -w wordlist.txt -c 200,401,403`
   
   # OUTPUT RESULTS TO A FILE
   
   `python3 credex.py -d https://example.com/ -w wordlist.txt -o filename.txt`
+  
+  # FUZZ LIST OF URLS
+  `./credax.sh urllist wordlist`
   
   
   
