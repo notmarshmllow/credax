@@ -1,5 +1,6 @@
 # CREDAX - FAST AI POWERED FUZZING TOOL with SLACK NOTIFICATIONS
-**Credax - Fast AI Powered Fuzzing Tool with Slack Notifications.**
+**Credax - WHEN THE HEAT IS ON, YOU GOTTA CALL THE FUZZ.**
+
 
 Credax is a lite-weight AI Powered Fuzzing Tool built in Python. Credax uses the least of your CPU by using more concurrent tasks and less threads, thus saving your OS Threads, providing you with better speed and results.
 
@@ -31,24 +32,36 @@ The following usage examples show the simplest task you can accomplish with `Cre
   
   
   
- # BASIC FUZZING
+ # BASIC USAGE
   
   `python3 credax.py -d https://example.com/ -w wordlist.txt`
   
  # SEND NOTIFICATIONS TO SLACK
+ Use `-s` to send notifications on your Slack wordspace. Add your slack webhook URL in **slack_variables.py** file.
   
   `python3 credax.py -d https://example.com/ -w wordlist.txt -s`
   
   # MATCHING STATUS CODES
+  Use `-c` switch to filter HTTP Status Code from response. 
    
   `python3 credax.py -d https://example.com/ -w wordlist.txt -c 200,401,403`
   
   # OUTPUT RESULTS TO A FILE
+  Write output to a file using `-o` switch.
   
   `python3 credax.py -d https://example.com/ -w wordlist.txt -o filename.txt`
   
   # FUZZ LIST OF URLS
+  
+  Fuzz a list of URLs, store output in file and activate slack notifications with following command.
+  
   `./credax.sh urllist wordlist`
+  
+  # POST REQUESTS
+  
+  Use `-POST` to send POST Requests. By default Credax sends GET Requests for Fuzzing.
+  
+  `python3 credax.py -d https://example.com/ -w wordlist.txt -POST`
   
   
   
