@@ -37,7 +37,7 @@ The following usage examples show the simplest task you can accomplish with `Cre
   `python3 credax.py -d https://example.com/ -w wordlist.txt`
   
  # SEND NOTIFICATIONS TO SLACK
- Use `-s` to send notifications on your Slack wordspace. Add your slack webhook URL in **slack_variables.py** file.
+ Use `-s` switch to send notifications on your Slack wordspace. Add your slack webhook URL in **slack_variables.py** file.
   
   `python3 credax.py -d https://example.com/ -w wordlist.txt -s`
   
