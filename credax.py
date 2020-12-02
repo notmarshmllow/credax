@@ -27,7 +27,7 @@ my_parser = argparse.ArgumentParser()
 my_parser.add_argument('-d', type=str, required=True, help="Provide Target Name")
 my_parser.add_argument('-o', required=False, help="Specify your Output File Name")
 my_parser.add_argument('-w', required=True, help="Custom Wordlist")
-my_parser.add_argument('-c', nargs='+', type=int , help="Match Custom Status Codes")
+my_parser.add_argument('-c', help="Match Custom Status Codes")
 my_parser.add_argument('-s', required=False, action='count', help="Send notifications to slack.")
 
 
