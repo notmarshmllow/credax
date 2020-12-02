@@ -119,8 +119,8 @@ async def main():
 
 
 
-
         existing = []
+
         for lst in l1:
             if len(existing) > 0:
                 if args.c:
