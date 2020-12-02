@@ -1,30 +1,30 @@
-# CREDEX - FAST AI POWERED FUZZING TOOL with SLACK NOTIFICATIONS
-**Credex - Fast AI Powered Fuzzing Tool with Slack Notifications.**
+# CREDAX - FAST AI POWERED FUZZING TOOL with SLACK NOTIFICATIONS
+**Credax - Fast AI Powered Fuzzing Tool with Slack Notifications.**
 
-Credex is a lite-weight AI Powered Fuzzing Tool built in Python. Credex uses the least of your CPU by using more concurrent tasks and less threads, thus saving your OS Threads, providing you with better speed and results.
+Credax is a lite-weight AI Powered Fuzzing Tool built in Python. Credax uses the least of your CPU by using more concurrent tasks and less threads, thus saving your OS Threads, providing you with better speed and results.
 
-CREDEX auto removes all consecutive result that respond with same length, thus removing almost all consecutive false positives, providing better output + Slack Notifications. This feature is self activated as soon as Credex starts heating itself.
+CREDAX auto removes all consecutive result that respond with same length, thus removing almost all consecutive false positives, providing better output + Slack Notifications. This feature is self activated as soon as Credax starts heating itself.
 
 ![alt text](https://github.com/notmarshmllow/credax/blob/main/CREDAX-GIF.gif?raw=True)
 
 # INSTALLATION
 
-**Credex requires Python3.7 + to run. Please upgrade your Python version to 3.7 or higher to use Credex.**
+**Credax requires Python3.7 + to run. Please upgrade your Python version to 3.7 or higher to use Credax.**
 
-1 .Clone the Credex reporitory.
+1. Clone the Credax reporitory.
 
 `git clone https://github.com/notmarshmllow/credax.git`
 
-2 .Install the Requirements
+2. Install the Requirements
 
 `pip install -r requirements.txt`
 
-`python3 credex.py -h`
+`python3 credax.py -h`
 
 # EXAMPLE USAGE
 
-Credex is lite-weight tool built for speed and effeciency. 
-The following usage examples show the simplest task you can accomplish with `Credex`.
+Credax is lite-weight tool built for speed and effeciency. 
+The following usage examples show the simplest task you can accomplish with `Credax`.
   
   
   ![alt text](https://github.com/notmarshmllow/credax/blob/main/credax.jpg?raw=True)
@@ -33,19 +33,19 @@ The following usage examples show the simplest task you can accomplish with `Cre
   
  # BASIC FUZZING
   
-  `python3 credex.py -d https://example.com/ -w wordlist.txt`
+  `python3 credax.py -d https://example.com/ -w wordlist.txt`
   
  # SEND NOTIFICATIONS TO SLACK
   
-  `python3 credex.py -d https://example.com/ -w wordlist.txt -s`
+  `python3 credax.py -d https://example.com/ -w wordlist.txt -s`
   
   # MATCHING STATUS CODES
    
-  `python3 credex.py -d https://example.com/ -w wordlist.txt -c 200,401,403`
+  `python3 credax.py -d https://example.com/ -w wordlist.txt -c 200,401,403`
   
   # OUTPUT RESULTS TO A FILE
   
-  `python3 credex.py -d https://example.com/ -w wordlist.txt -o filename.txt`
+  `python3 credax.py -d https://example.com/ -w wordlist.txt -o filename.txt`
   
   # FUZZ LIST OF URLS
   `./credax.sh urllist wordlist`
@@ -65,5 +65,7 @@ The following usage examples show the simplest task you can accomplish with `Cre
 All developments to the tool are welcomed and highly appreciated !
 
 
-**CREDEX - Developed by [@notmarshmllow](https://twitter.com/notmarshmllow)**:sparkles:
+
+
+**CREDAX - Developed by [@notmarshmllow](https://twitter.com/notmarshmllow)**:sparkles:
 
