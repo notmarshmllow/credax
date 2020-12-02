@@ -5,21 +5,24 @@ import json
 import requests
 from slack_variables import slack_webhook_url
 import time
+from colorama import init
+from termcolor import colored
 
+init()
 
-
-print("""\n
+print(colored("""\n
 
      _/_/_/  _/_/_/    _/_/_/_/  _/_/_/      _/_/    _/      _/   
   _/        _/    _/  _/        _/    _/  _/    _/    _/  _/      
  _/        _/_/_/    _/_/_/    _/    _/  _/_/_/_/      _/         
 _/        _/    _/  _/        _/    _/  _/    _/    _/  _/        
  _/_/_/  _/    _/  _/_/_/_/  _/_/_/    _/    _/  _/      _/       
-                                                        v1.0
-               When the heat is on, you gotta call the fuzz
+                                                        v1.0\n""", 'green'))
+
+print(colored("""               When the heat is on, you gotta call the fuzz
                                  Developed by notmarshmllow
 
-\n""")
+\n""", 'red'))
 
 
 
@@ -50,28 +53,28 @@ async def main():
         try:
             with open(args.w, encoding='ISO-8859-1', errors='ignore') as filex:
                 if args.POST:
-                    p11 = "METHOD : POST"
+                    p11 = "METHOD : " + colored("POST" , 'red')
                 else:
-                    p11 = "METHOD : GET"
+                    p11 = "METHOD : " + colored("GET" , 'red')
                 if args.s:
-                    s11 = "SLACK NOTIFICATION : ON"
+                    s11 = "SLACK NOTIFICATION :" + colored(" ON", 'red')
                 else:
-                    s11 = "SLACK NOTIFICATION : OFF"
+                    s11 = "SLACK NOTIFICATION :" + colored("OFF", 'red')
                 if args.c:
-                    c11 = "Matching Status Codes : " + args.c
+                    c11 = "Matching Status Codes : " + colored(args.c, 'red')
                 else:
-                    c11 = "Matching Status Codes : 200, 301, 302, 401, 403"
+                    c11 = "Matching Status Codes : " + colored(" 200 , 301, 302, 401, 403", 'red')
                 if args.o:
-                    o11 = "OUTPUT TO : " + args.o
+                    o11 = "OUTPUT TO : " + colored(args.o, 'red')
                 else:
-                    o11 = "OUTPUT TO : NONE "
-                u11 = "URL : " + base_url
-                w11 = "Wordlist : " + args.w
+                    o11 = "OUTPUT TO : " + colored("NONE", 'red')
+                u11 = "URL : " + colored(base_url, 'red')
+                w11 = "Wordlist : " + colored(args.w, 'red')
 
-                print(f'{u11}  |  {w11}  |  {s11}  |  {c11}   |  {o11}  |  {p11}')
+                print(f'{u11}  |  {w11}  |  {s11}  |  {c11}   |  {o11}')
 
                 time.sleep(1)
-                print("\nCredax is heating itself ...\n\n")
+                print(colored("\nCredax is heating itself ...\n", 'yellow'))
 
 
                 for line in filex:
