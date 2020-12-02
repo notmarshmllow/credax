@@ -29,7 +29,7 @@ my_parser.add_argument('-o', required=False, help="Specify your Output File Name
 my_parser.add_argument('-w', required=True, help="Custom Wordlist")
 my_parser.add_argument('-c', help="Match Custom Status Codes")
 my_parser.add_argument('-s', required=False, action='count', help="Send notifications to slack.")
-my_parser.add_argument('-POST', action="count" , help="POST METHOD")
+my_parser.add_argument('-POST', action="count", help="POST METHOD")
 
 
 args = my_parser.parse_args()
@@ -49,6 +49,10 @@ async def main():
     async with aiohttp.ClientSession() as session:
         try:
             with open(args.w, encoding='ISO-8859-1', errors='ignore') as filex:
+                if args.POST:
+                    p11 = "METHOD : POST"
+                else:
+                    p11 = "METHOD : GET"
                 if args.s:
                     s11 = "SLACK NOTIFICATION : ON"
                 else:
@@ -56,7 +60,7 @@ async def main():
                 if args.c:
                     c11 = "Matching Status Codes : " + args.c
                 else:
-                    c11 = "Matching Status Codes : 200 , 301, 302, 401, 403"
+                    c11 = "Matching Status Codes : 200, 301, 302, 401, 403"
                 if args.o:
                     o11 = "OUTPUT TO : " + args.o
                 else:
@@ -64,7 +68,7 @@ async def main():
                 u11 = "URL : " + base_url
                 w11 = "Wordlist : " + args.w
 
-                print(f'{u11}  |  {w11}  |  {s11}  |  {c11}   |  {o11}')
+                print(f'{u11}  |  {w11}  |  {s11}  |  {c11}   |  {o11}  |  {p11}')
 
                 time.sleep(1)
                 print("\nCredax is heating itself ...\n\n")
