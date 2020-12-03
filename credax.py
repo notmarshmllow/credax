@@ -57,7 +57,7 @@ async def main():
                 else:
                     p11 = "METHOD : " + colored("GET" , 'red')
                 if args.s:
-                    s11 = "SLACK NOTIFICATION :" + colored(" ON", 'red')
+                    s11 = "SLACK NOTIFICATION : " + colored(" ON", 'red')
                 else:
                     s11 = "SLACK NOTIFICATION :" + colored("OFF", 'red')
                 if args.c:
@@ -71,7 +71,7 @@ async def main():
                 u11 = "URL : " + colored(base_url, 'red')
                 w11 = "Wordlist : " + colored(args.w, 'red')
 
-                print(f'{u11}  |  {w11}  |  {s11}  |  {c11}   |  {o11}')
+                print(f'{u11}  |  {w11}  |  {s11}  |  {c11}   |  {o11}  |  {p11}')
 
                 time.sleep(1)
                 print(colored("\nCredax is heating itself ...\n", 'yellow'))
