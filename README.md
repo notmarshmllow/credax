@@ -68,7 +68,7 @@ The following usage examples show the simplest task you can accomplish with `Cre
   # BYPASS 403
  
  CREDAX automatically tries to **bypass 403 Resopnse** using custom Headers. Just run credax against a domain name and let CREDAX do all the work for you.
- By default, Credax uses **127.0.0.1 IP Address** and **localhost** as key/value pairs to bypass 403 response. 
+ By default, Credax uses **127.0.0.1 IP Address** and **localhost** to bypass 403 response. 
  
  You can also set Custom IP Address to Bypass 403 Resposne using `-IP` Switch. 
  
