@@ -20,6 +20,8 @@ CREDAX auto removes all consecutive result that respond with same length, thus r
 
 `pip install -r requirements.txt`
 
+`chmod +x credax.sh`
+
 `python3 credax.py -h`
 
 # EXAMPLE USAGE
