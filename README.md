@@ -67,7 +67,10 @@ The following usage examples show the simplest task you can accomplish with `Cre
   
   # BYPASS 403
  
- CREDAX AI automatically tries to bypasses 403 Resopnse using custom Headers.
+ CREDAX AI automatically tries to bypass 403 Resopnse using custom Headers. Just run credax against a domain name and let CREDAX do all the work for you.
+ By default, Credax uses **127.0.0.1** IP Address to bypass 403 response. You can also set Custom IP Address to Bypass 403 Resposne using `-IP` Switch.
+ 
+ `python3 -d https://google.com/ -w wordlists.txt -IP 8.8.8.8`
  
  # COMMANDS
  
@@ -79,6 +82,7 @@ The following usage examples show the simplest task you can accomplish with `Cre
  -s | Enable Slack Notofications | -s
  -o | Write output to a file | -o filename
  -POST | Send POST Request | -POST
+ -IP | Custom IP Address to Bypass 403 | -IP 8.8.8.8
   
   
   
