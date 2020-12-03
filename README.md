@@ -68,9 +68,11 @@ The following usage examples show the simplest task you can accomplish with `Cre
   # BYPASS 403
  
  CREDAX AI automatically tries to bypass 403 Resopnse using custom Headers. Just run credax against a domain name and let CREDAX do all the work for you.
- By default, Credax uses **127.0.0.1** IP Address to bypass 403 response. You can also set Custom IP Address to Bypass 403 Resposne using `-IP` Switch.
+ By default, Credax uses **127.0.0.1** IP Address to bypass 403 response. You can also set Custom IP Address to Bypass 403 Resposne using `-IP` Switch. 
  
  `python3 -d https://google.com/ -w wordlists.txt -IP 8.8.8.8`
+ 
+ You can also use `-HOST` switch to pass string as an argument instead of IP Address to bypass 403. This can also be used to find Blind SSRF.
  
  # COMMANDS
  
@@ -83,6 +85,8 @@ The following usage examples show the simplest task you can accomplish with `Cre
  -o | Write output to a file | -o filename
  -POST | Send POST Request | -POST
  -IP | Custom IP Address to Bypass 403 | -IP 8.8.8.8
+ -HOST | Custom Domain Name to bypass 403 / Blind SSRF  | -HOST localhost
+  | | | -HOST yourdomain.com
   
   
   
@@ -96,10 +100,12 @@ The following usage examples show the simplest task you can accomplish with `Cre
 6. Copy and Paste you Slack Webhook URL in place of `_slack_webhook_url_here_` inside `slack_variables.py` file.
 
 
-All developments to the tool are welcomed and highly appreciated !
+All developments to the tool are welcomed and highly appreciated ! 
+
+Please open an issue to keep track of bugs, enhancements, or other requests.
+
 
 
 
 
 **CREDAX - Developed by [@notmarshmllow](https://twitter.com/notmarshmllow)**:sparkles:
-
