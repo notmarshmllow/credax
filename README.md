@@ -67,26 +67,31 @@ The following usage examples show the simplest task you can accomplish with `Cre
   
   # BYPASS 403
  
- CREDAX AI automatically tries to bypass 403 Resopnse using custom Headers. Just run credax against a domain name and let CREDAX do all the work for you.
- By default, Credax uses **127.0.0.1** IP Address to bypass 403 response. You can also set Custom IP Address to Bypass 403 Resposne using `-IP` Switch. 
+ CREDAX automatically tries to **bypass 403 Resopnse** using custom Headers. Just run credax against a domain name and let CREDAX do all the work for you.
+ By default, Credax uses **127.0.0.1 IP Address** and **localhost** as key/value pairs to bypass 403 response. 
+ 
+ You can also set Custom IP Address to Bypass 403 Resposne using `-IP` Switch. 
  
  `python3 -d https://google.com/ -w wordlists.txt -IP 8.8.8.8`
  
- You can also use `-HOST` switch to pass string as an argument instead of IP Address to bypass 403. This can also be used to find Blind SSRF.
+ You can also use `-HOST` switch to pass string as an argument instead of an IP Address to bypass 403 Response. This string can be a `domain name` or any path such as `/admin` to bypass 403 Response.
+ 
+ `python3 -d https://google.com/ -w wordlists.txt -HOST localhost`
+ 
+ `python3 -d https://google.com/ -w wordlists.txt -HOST yourdomain.com`
  
  # COMMANDS
  
- COMMAND | USAGE | FORMAT
- --------|-------|-------
+ COMMAND | DESCRIPTION | USAGE
+ --------|-------------|-------
   -d | Enter domain name | -d https://example.com/ 
- -w | File containing list of words to FUZZ | -w filename.txt
+ -w | File containing list of words to FUZZ | -w wordlist.txt
  -c | Matching Custom Status Code | -c 200,401
  -s | Enable Slack Notofications | -s
  -o | Write output to a file | -o filename
  -POST | Send POST Request | -POST
  -IP | Custom IP Address to Bypass 403 | -IP 8.8.8.8
- -HOST | Custom Domain Name to bypass 403 / Blind SSRF  | -HOST localhost
-  | | | -HOST yourdomain.com
+ -HOST | Custom Domain Name / path to bypass 403 | -HOST /admin **or** -HOST yourdomain.com
   
   
   
