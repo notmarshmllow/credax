@@ -30,7 +30,7 @@ Credax is lite-weight tool built for speed and effeciency.
 The following usage examples show the simplest task you can accomplish with `Credax`.
   
   
-  ![alt text](https://github.com/notmarshmllow/credax/blob/main/credax.png?raw=True)
+  ![alt text](https://github.com/notmarshmllow/credax/blob/main/image_credax.png?raw=True)
   
   
   
