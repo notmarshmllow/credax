@@ -84,7 +84,7 @@ The following usage examples show the simplest task you can accomplish with `Cre
  
  COMMAND | DESCRIPTION | USAGE
  --------|-------------|-------
-  -d | Enter domain name | -d https://example.com/ 
+  -d | Target URL | -d https://example.com/ 
  -w | File containing list of words to FUZZ | -w wordlist.txt
  -c | Matching Custom Status Code | -c 200,401
  -s | Enable Slack Notofications | -s
