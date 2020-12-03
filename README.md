@@ -65,6 +65,21 @@ The following usage examples show the simplest task you can accomplish with `Cre
   
   `python3 credax.py -d https://example.com/ -w wordlist.txt -POST`
   
+  # BYPASS 403
+ 
+ CREDAX AI automatically tries to bypasses 403 Resopnse using custom Headers.
+ 
+ # COMMANDS
+ 
+ COMMAND | USAGE | FORMAT
+ --------|-------|-------
+  -d | Enter domain name | -d https://example.com/ 
+ -w | File containing list of words to FUZZ | -w filename.txt
+ -c | Matching Custom Status Code | -c 200,401
+ -s | Enable Slack Notofications | -s
+ -o | Write output to a file | -o filename
+ -POST | Send POST Request | -POST
+  
   
   
   # SLACK NOTIFICATIONS
