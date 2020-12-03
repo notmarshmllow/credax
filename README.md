@@ -89,7 +89,7 @@ The following usage examples show the simplest task you can accomplish with `Cre
  -c | Matching Custom Status Code | -c 200,401
  -s | Enable Slack Notofications | -s
  -o | Write output to a file | -o filename
- -POST | Send POST Request | -POST
+ -POST | Send POST Request (Default GET) | -POST
  -IP | Custom IP Address to Bypass 403 | -IP 8.8.8.8
  -HOST | Custom Domain Name / path to bypass 403 | -HOST /admin **or** -HOST yourdomain.com
   
