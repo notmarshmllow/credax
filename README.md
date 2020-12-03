@@ -78,7 +78,7 @@ The following usage examples show the simplest task you can accomplish with `Cre
  
  `python3 -d https://google.com/ -w wordlists.txt -HOST localhost`
  
- `python3 -d https://google.com/ -w wordlists.txt -HOST yourdomain.com`
+ `python3 -d https://google.com/ -w wordlists.txt -HOST /admin`
  
  # COMMANDS
  
