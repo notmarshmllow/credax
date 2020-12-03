@@ -5,3 +5,4 @@ requests==2.24.0
 slack-sdk==3.0.0rc1
 slackclient==2.9.3
 urllib3==1.25.11
+colorama
