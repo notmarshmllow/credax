@@ -65,10 +65,10 @@ The following usage examples show the simplest task you can accomplish with `Cre
   
   `python3 credax.py -d https://example.com/ -w wordlist.txt -POST`
   
-  # BYPASS 403
+  # BYPASSING 403 RESPONSES
  
- CREDAX automatically tries to **bypass 403 Resopnse** using custom Headers. Just run credax against a domain name and let CREDAX do all the work for you.
- By default, Credax uses **127.0.0.1 IP Address** and **localhost** to bypass 403 response. 
+ CREDAX by default tries to **bypass 403 Resopnse** using custom Headers. Just run credax against a domain name and let CREDAX do all the work for you.
+ Credax uses **127.0.0.1 IP Address** to bypass 403 response. 
  
  You can also set Custom IP Address to Bypass 403 Resposne using `-IP` Switch. 
  
