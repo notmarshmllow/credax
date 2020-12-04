@@ -2,7 +2,7 @@
 **Credax - WHEN THE HEAT IS ON, YOU GOTTA CALL THE FUZZ.**
 
 
-Credax is a lite-weight AI Powered Fuzzing Tool built in Python. Credax uses the least of your CPU by using more concurrent tasks and less threads, thus saving your OS Threads, providing you with better speed and results.
+Credax is a lite-weight Smart, Fast and efficient Fuzzing Tool built in Python. Credax uses the least of your CPU by using more concurrent tasks and less threads, thus saving your OS Threads, providing you with better speed and results.
 
 CREDAX auto removes all consecutive result that respond with same length, thus removing almost all consecutive false positives, providing better output + Slack Notifications. 
 
