@@ -33,6 +33,7 @@ my_parser.add_argument('-w', required=True, help="Custom Wordlist")
 my_parser.add_argument('-c', help="Match Custom Status Codes")
 my_parser.add_argument('-s', required=False, action='count', help="Send notifications to slack.")
 my_parser.add_argument('-POST', action="count", help="POST METHOD")
+my_parser.add_argument('-IP', '-HOST', default="127.0.0.1", help="IP ADDRESS")
 
 
 args = my_parser.parse_args()
@@ -40,26 +41,42 @@ args = my_parser.parse_args()
 base_url = args.d
 base_url = str(base_url)
 
+headers = {
+    "X-Forwarded-For": "http://"+args.IP or args.HOST,
+    "X-Forwarded-For": args.IP or args.HOST,
+    "X-Originating-IP": args.IP or args.HOST,
+    "X-Forwarded-For": args.IP or args.HOST,
+    "X-Remote-IP": args.IP or args.HOST,
+    "X-Client-IP": args.IP or args.HOST,
+    "X-Host": args.IP or args.HOST,
+    "X-Forwared-Host": args.IP or args.HOST,
+    "X-Remote-Addr": args.IP or args.HOST,
+    "X-ProxyUser-Ip": args.IP or args.HOST,
+
+    }
 
 if args.c:
-    user_c = tuple(args.c)
+    user_c = args.c
+
 
 
 async def main():
     l1 = []
     num_words = 0
-    num_respomnse = 0
-    async with aiohttp.ClientSession() as session:
+
+    async with aiohttp.ClientSession(headers=headers) as session:
         try:
             with open(args.w, encoding='ISO-8859-1', errors='ignore') as filex:
+                if args.IP or args.HOST:
+                    ip11 = "IP ADDRESS/HOST : " + colored(args.IP or args.HOST , 'red')
                 if args.POST:
-                    p11 = "METHOD : " + colored("POST" , 'red')
+                    p11 = "METHOD : " + colored(" POST" , 'red')
                 else:
-                    p11 = "METHOD : " + colored("GET" , 'red')
+                    p11 = "METHOD : " + colored(" GET" , 'red')
                 if args.s:
-                    s11 = "SLACK NOTIFICATION : " + colored(" ON", 'red')
+                    s11 = "SLACK NOTIFICATION :" + colored(" ON", 'red')
                 else:
-                    s11 = "SLACK NOTIFICATION :" + colored("OFF", 'red')
+                    s11 = "SLACK NOTIFICATION :" + colored(" OFF", 'red')
                 if args.c:
                     c11 = "Matching Status Codes : " + colored(args.c, 'red')
                 else:
@@ -67,11 +84,11 @@ async def main():
                 if args.o:
                     o11 = "OUTPUT TO : " + colored(args.o, 'red')
                 else:
-                    o11 = "OUTPUT TO : " + colored("NONE", 'red')
+                    o11 = "OUTPUT TO : " + colored(" NONE", 'red')
                 u11 = "URL : " + colored(base_url, 'red')
                 w11 = "Wordlist : " + colored(args.w, 'red')
 
-                print(f'{u11}  |  {w11}  |  {s11}  |  {c11}   |  {o11}  |  {p11}')
+                print(f'{u11}  |  {w11}  |  {p11}  |  {s11}  |  {c11}   |  {ip11}  |  {o11}')
 
                 time.sleep(1)
                 print(colored("\nCredax is heating itself ...\n", 'yellow'))
@@ -103,12 +120,14 @@ async def main():
                     else:
                         async with session.get(fuzz) as resp:
                             for i in range(num_words):
-                                print("Total Requests : {}".format(i), end="\r")
+
+                                   print("Total Requests : {}".format(i), end="\r")
                             status = resp.status
                             l.append(status)
 
                             result = await resp.text()
                             result = str(result)
+
                             size = len(result)
                             l.append(size)
                             l1.append(l)
@@ -119,8 +138,8 @@ async def main():
 
 
 
-        existing = []
 
+        existing = []
         for lst in l1:
             if len(existing) > 0:
                 if args.c:
