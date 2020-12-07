@@ -32,8 +32,8 @@ my_parser.add_argument('-o', required=False, help="Specify your Output File Name
 my_parser.add_argument('-w', required=True, help="Custom Wordlist")
 my_parser.add_argument('-c', help="Match Custom Status Codes")
 my_parser.add_argument('-s', required=False, action='count', help="Send notifications to slack.")
-my_parser.add_argument('-POST', action="count", help="POST METHOD")
-my_parser.add_argument('-IP', '-HOST', default="127.0.0.1", help="IP ADDRESS")
+my_parser.add_argument('-POST', required=False, action="count", help="POST METHOD")
+my_parser.add_argument('-IP', '-HOST', required=False, default="127.0.0.1", help="IP ADDRESS")
 
 
 args = my_parser.parse_args()
@@ -57,6 +57,7 @@ headers = {
 
 if args.c:
     user_c = args.c
+    user_c = int(user_c)
 
 
 
@@ -119,9 +120,9 @@ async def main():
                             l1.append(l)
                     else:
                         async with session.get(fuzz) as resp:
-                            for i in range(num_words):
 
-                                   print("Total Requests : {}".format(i), end="\r")
+                            for i in range(num_words):
+                                print("Total Requests : {}".format(i), end="\r")
                             status = resp.status
                             l.append(status)
 
@@ -137,14 +138,12 @@ async def main():
 
 
 
-
-
         existing = []
         for lst in l1:
             if len(existing) > 0:
                 if args.c:
-                    for i in user_c:
-                        if i == lst[1]:
+                    for i in lst:
+                        if i == user_c:
                             if lst[-1] != existing[-1]:
                                 output_list = lst
                                 output_list_to_string = str(output_list).replace("'", " ")
