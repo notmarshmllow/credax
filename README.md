@@ -4,7 +4,7 @@
 
 Credax is a lite-weight Smart, Fast and efficient Fuzzing Tool built in Python. Credax uses the least of your CPU by using more concurrent tasks and less threads, thus saving your OS Threads, providing you with better speed and results.
 
-CREDAX auto removes all consecutive result that respond with same length, thus removing almost all consecutive false positives, providing better output + Slack Notifications. 
+CREDAX auto removes all consecutive result that respond with same length, thus removing almost all consecutive false positives, providing better output and also sends Notifications on Slack. 
 
 ![alt text](https://github.com/notmarshmllow/credax/blob/main/CREDAX.gif)
 
@@ -44,9 +44,9 @@ The following usage examples show the simplest task you can accomplish with `Cre
   `python3 credax.py -d https://example.com/ -w wordlist.txt -s`
   
   # MATCHING STATUS CODES
-  Use `-c` switch to filter HTTP Status Code from response. 
+  Use `-c` switch to filter HTTP Status Code from response. This switch accepts one single Status Code only.
    
-  `python3 credax.py -d https://example.com/ -w wordlist.txt -c 200,401,403`
+  `python3 credax.py -d https://example.com/ -w wordlist.txt -c 200`
   
   # OUTPUT RESULTS TO A FILE
   Write output to a file using `-o` switch.
@@ -67,7 +67,7 @@ The following usage examples show the simplest task you can accomplish with `Cre
   
   # BYPASSING 403 RESPONSES
  
- CREDAX by default tries to **bypass 403 Resopnse** using custom Headers. Just run credax against a domain name and let CREDAX do all the work for you.
+ CREDAX by default tries to **bypass 403 Resopnse** using a list of custom Headers. Just run credax against a domain name and let CREDAX do all the work for you.
  Credax uses **127.0.0.1 IP Address** to bypass 403 response. 
  
  You can also set Custom IP Address to Bypass 403 Resposne using `-IP` Switch. 
@@ -86,7 +86,7 @@ The following usage examples show the simplest task you can accomplish with `Cre
  --------|-------------|-------
   -d | Target URL | -d https://example.com/ 
  -w | File containing list of words to FUZZ | -w wordlist.txt
- -c | Matching Custom Status Code | -c 200,401
+ -c | Matching Custom Status Code (Accepts Single Status Code) | -c 200
  -s | Enable Slack Notofications | -s
  -o | Write output to a file | -o filename
  -POST | Send POST Request (Default GET) | -POST
