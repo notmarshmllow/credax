@@ -70,15 +70,16 @@ The following usage examples show the simplest task you can accomplish with `Cre
  CREDAX by default tries to **bypass 403 Resopnse** using a list of custom Headers. Just run credax against a domain name and let CREDAX do all the work for you.
  Credax uses **127.0.0.1 IP Address** to bypass 403 response. 
  
- You can also set Custom IP Address to Bypass 403 Resposne using `-IP` Switch. 
+ You can also set Custom IP Address, Host Address or Path to Bypass 403 Resposne using `-IP` Switch. 
  
  `python3 -d https://google.com/ -w wordlists.txt -IP 8.8.8.8`
- 
- You can also use `-HOST` switch to pass string as an argument instead of an IP Address to bypass 403 Response. This string can be a `domain name` or any path such as `/admin` to bypass 403 Response.
  
  `python3 -d https://google.com/ -w wordlists.txt -HOST localhost`
  
  `python3 -d https://google.com/ -w wordlists.txt -HOST /admin`
+ 
+ 
+
  
  # COMMANDS
  
@@ -90,8 +91,7 @@ The following usage examples show the simplest task you can accomplish with `Cre
  -s | Enable Slack Notofications | -s
  -o | Write output to a file | -o filename
  -POST | Send POST Request (Default GET) | -POST
- -IP | Custom IP Address to Bypass 403 | -IP 8.8.8.8
- -HOST | Custom Domain Name / path to bypass 403 | -HOST /admin **or** -HOST yourdomain.com
+ -IP | Custom IP Address, Host Address or Path to Bypass 403 | -IP 8.8.8.8 **or** yourdomain.com **or** /admin 
   
   
   
