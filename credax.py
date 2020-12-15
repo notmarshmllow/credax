@@ -4,9 +4,9 @@ import asyncio
 import json
 import requests
 from slack_variables import slack_webhook_url
-import time
 from colorama import init
 from termcolor import colored
+from datetime import datetime
 
 init()
 
@@ -33,7 +33,7 @@ my_parser.add_argument('-w', required=True, help="Custom Wordlist")
 my_parser.add_argument('-c', help="Match Custom Status Codes")
 my_parser.add_argument('-s', required=False, action='count', help="Send notifications to slack.")
 my_parser.add_argument('-POST', required=False, action="count", help="POST METHOD")
-my_parser.add_argument('-IP', '-HOST', required=False, default="127.0.0.1", help="IP ADDRESS")
+my_parser.add_argument('-HOST', required=False, default="127.0.0.1", help="Cutsom Address")
 
 
 args = my_parser.parse_args()
@@ -42,23 +42,44 @@ base_url = args.d
 base_url = str(base_url)
 
 headers = {
-    "X-Forwarded-For": "http://"+args.IP or args.HOST,
-    "X-Forwarded-For": args.IP or args.HOST,
-    "X-Originating-IP": args.IP or args.HOST,
-    "X-Forwarded-For": args.IP or args.HOST,
-    "X-Remote-IP": args.IP or args.HOST,
-    "X-Client-IP": args.IP or args.HOST,
-    "X-Host": args.IP or args.HOST,
-    "X-Forwared-Host": args.IP or args.HOST,
-    "X-Remote-Addr": args.IP or args.HOST,
-    "X-ProxyUser-Ip": args.IP or args.HOST,
-
+    "X-Forwarded-For": "http://" + args.HOST,
+    "X-Forwarded-For": args.HOST,
+    "X-Originating-IP": args.HOST,
+    "X-Forwarded-For": args.HOST,
+    "X-Remote-IP": args.HOST,
+    "X-Client-IP": args.HOST,
+    "X-Host": args.HOST,
+    "X-Forwared-Host": args.HOST,
+    "X-Remote-Addr": args.HOST,
+    "X-ProxyUser-Ip": args.HOST,
     }
 
 if args.c:
     user_c = args.c
     user_c = int(user_c)
 
+if args.HOST:
+    ip11 = "IP ADDRESS/HOST : " + colored(args.HOST, 'red')
+if args.POST:
+    p11 = "METHOD : " + colored(" POST", 'red')
+else:
+    p11 = "METHOD : " + colored(" GET", 'red')
+if args.s:
+    s11 = "SLACK NOTIFICATION :" + colored(" ON", 'red')
+else:
+    s11 = "SLACK NOTIFICATION :" + colored(" OFF", 'red')
+if args.c:
+    c11 = "Matching Status Codes : " + colored(args.c, 'red')
+else:
+    c11 = "Matching Status Codes : " + colored(" 200 , 301, 302, 401, 403", 'red')
+if args.o:
+    o11 = "OUTPUT TO : " + colored(args.o, 'red')
+else:
+    o11 = "OUTPUT TO : " + colored(" NONE", 'red')
+u11 = "URL : " + colored(base_url, 'red')
+w11 = "Wordlist : " + colored(args.w, 'red')
+
+print(f'{u11}  |  {w11}  |  {p11}  |  {s11}  |  {c11}   |  {ip11}  |  {o11}\n')
 
 
 async def main():
@@ -68,32 +89,6 @@ async def main():
     async with aiohttp.ClientSession(headers=headers) as session:
         try:
             with open(args.w, encoding='ISO-8859-1', errors='ignore') as filex:
-                if args.IP or args.HOST:
-                    ip11 = "IP ADDRESS/HOST : " + colored(args.IP or args.HOST , 'red')
-                if args.POST:
-                    p11 = "METHOD : " + colored(" POST" , 'red')
-                else:
-                    p11 = "METHOD : " + colored(" GET" , 'red')
-                if args.s:
-                    s11 = "SLACK NOTIFICATION :" + colored(" ON", 'red')
-                else:
-                    s11 = "SLACK NOTIFICATION :" + colored(" OFF", 'red')
-                if args.c:
-                    c11 = "Matching Status Codes : " + colored(args.c, 'red')
-                else:
-                    c11 = "Matching Status Codes : " + colored(" 200 , 301, 302, 401, 403", 'red')
-                if args.o:
-                    o11 = "OUTPUT TO : " + colored(args.o, 'red')
-                else:
-                    o11 = "OUTPUT TO : " + colored(" NONE", 'red')
-                u11 = "URL : " + colored(base_url, 'red')
-                w11 = "Wordlist : " + colored(args.w, 'red')
-
-                print(f'{u11}  |  {w11}  |  {p11}  |  {s11}  |  {c11}   |  {ip11}  |  {o11}')
-
-                time.sleep(1)
-                print(colored("\nCredax is heating itself ...\n", 'yellow'))
-
 
                 for line in filex:
                     l = []
@@ -198,7 +193,8 @@ async def main():
                                     file.write(output_list_to_string2 + '\n')
 
 
+ 
+            
             existing.append(lst[-1])
-
 
 asyncio.get_event_loop().run_until_complete(main())
