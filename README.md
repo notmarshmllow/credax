@@ -74,9 +74,11 @@ The following usage examples show the simplest task you can accomplish with `Cre
  
  `python3 -d https://google.com/ -w wordlists.txt -IP 8.8.8.8`
  
- `python3 -d https://google.com/ -w wordlists.txt -HOST localhost`
+ `python3 -d https://google.com/ -w wordlists.txt -IP localhost`
  
- `python3 -d https://google.com/ -w wordlists.txt -HOST /admin`
+ `python3 -d https://google.com/ -w wordlists.txt -IP yourdomain.com`
+ 
+ `python3 -d https://google.com/ -w wordlists.txt -IP /admin`
  
  
 
