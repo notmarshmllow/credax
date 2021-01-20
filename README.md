@@ -42,6 +42,8 @@ The following usage examples show the simplest task you can accomplish with `Cre
   
   `python3 credax.py -d https://example.com/ -w wordlist.txt -s`
   
+![alt text](https://github.com/notmarshmllow/credax/blob/main/slack_notifications.png)
+
   # MATCHING STATUS CODES
   Use `-c` switch to filter HTTP Status Code from response. This switch accepts one single Status Code only.
    
