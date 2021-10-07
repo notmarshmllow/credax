@@ -116,4 +116,4 @@ Please open an issue to keep track of bugs, enhancements, or other requests.
 
 
 
-**CREDAX - Developed by [@notmarshmllow](https://twitter.com/notmarshmllow)**:sparkles:
+**CREDAX - Developed by [@notmarshmllow](https://twitter.com/notmarshmllow) & [@het_vikam](https://twitter.com/het_vikam)**:sparkles:
